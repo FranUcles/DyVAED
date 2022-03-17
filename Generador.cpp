@@ -46,7 +46,7 @@ int caso_mejor(int n, int m) {
 }
 
 int caso_peor(int n, int m) {
-    // Algo
+    // Algo otra cosa
 }
 
 int main(){

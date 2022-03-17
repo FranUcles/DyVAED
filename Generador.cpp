@@ -21,8 +21,8 @@ string generar_string_igual(int n, char c) {
     return resultado;
 }
 
-double media(int casos[]){
-    int suma = 0;
+double media(double casos[]){
+    double suma = 0;
     int tamano = sizeof(casos)/sizeof(casos[0]); // Tamaño del array de casos
     for (int i = 0; i < tamano; i++)
         suma += casos[i];
@@ -30,11 +30,11 @@ double media(int casos[]){
 }
 
 double caso_promedio(int n, int m) {
-    int casos[NUMERO_PRUEBAS_PROMEDIO];  // Array donde guardar las diferentes salidas de los casos
+    double casos[NUMERO_PRUEBAS_PROMEDIO];  // Array donde guardar las diferentes salidas de los casos
     for (int i = 0; i < NUMERO_PRUEBAS_PROMEDIO; i++) {
         string cadena_A = generar_string_promedio(n);
         string cadena_B = generar_string_promedio(n);
-        // casos[i] = DyV(m, cadena_A, cadena_B);
+        // casos[i] = DyV(m, cadena_A, cadena_B).getLong();
     }
     return media(casos);
 }
@@ -42,13 +42,13 @@ double caso_promedio(int n, int m) {
 double caso_mejor(int n, int m) {
     string cadena_A = generar_string_igual(n, 'a');
     string cadena_B = generar_string_igual(n, 'a');
-    // return DyV(m, cadena_A, cadena_B);
+    // return DyV(m, cadena_A, cadena_B).getLong();
 }
 
 double caso_peor(int n, int m) {
     string cadena_A = generar_string_igual(n, 'a');
     string cadena_B = generar_string_igual(n, 'b');
-    // Algo otra cosa
+    // return DyV(m, cadena_A, cadena_B).getLong();
 }
 
 int main(){

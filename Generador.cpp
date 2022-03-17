@@ -41,11 +41,13 @@ int caso_promedio(int n, int m) {
 
 int caso_mejor(int n, int m) {
     string cadena_A = generar_string_igual(n, 'a');
-    string cadena_B = generar_string_igual(n, 'b');
+    string cadena_B = generar_string_igual(n, 'a');
     // return DyV(m, cadena_A, cadena_B);
 }
 
 int caso_peor(int n, int m) {
+    string cadena_A = generar_string_igual(n, 'a');
+    string cadena_B = generar_string_igual(n, 'b');
     // Algo otra cosa
 }
 

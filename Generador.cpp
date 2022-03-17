@@ -2,7 +2,7 @@
 #include<time.h>
 using namespace std;
 
-const int NUMERO_PRUEBAS_PROMEDIO = 5;
+const int NUMERO_PRUEBAS_PROMEDIO = 10;
 
 string generar_string_promedio(int n) {
     string resultado = string();
@@ -21,7 +21,7 @@ string generar_string_igual(int n, char c) {
     return resultado;
 }
 
-int media(int casos[]){
+double media(int casos[]){
     int suma = 0;
     int tamano = sizeof(casos)/sizeof(casos[0]); // Tamaño del array de casos
     for (int i = 0; i < tamano; i++)
@@ -29,7 +29,7 @@ int media(int casos[]){
     return suma/tamano;
 }
 
-int caso_promedio(int n, int m) {
+double caso_promedio(int n, int m) {
     int casos[NUMERO_PRUEBAS_PROMEDIO];  // Array donde guardar las diferentes salidas de los casos
     for (int i = 0; i < NUMERO_PRUEBAS_PROMEDIO; i++) {
         string cadena_A = generar_string_promedio(n);
@@ -39,13 +39,13 @@ int caso_promedio(int n, int m) {
     return media(casos);
 }
 
-int caso_mejor(int n, int m) {
+double caso_mejor(int n, int m) {
     string cadena_A = generar_string_igual(n, 'a');
     string cadena_B = generar_string_igual(n, 'a');
     // return DyV(m, cadena_A, cadena_B);
 }
 
-int caso_peor(int n, int m) {
+double caso_peor(int n, int m) {
     string cadena_A = generar_string_igual(n, 'a');
     string cadena_B = generar_string_igual(n, 'b');
     // Algo otra cosa

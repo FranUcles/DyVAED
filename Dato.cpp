@@ -21,3 +21,9 @@ void Dato::setPos(int p){
 void Dato::setLong(int l){
     this->longitud = l;
 }
+Dato Dato::datoMax(Dato d1, Dato d2) {
+    if (d1.longitud >= d2.longitud)
+        return d1;
+    else
+        return d2;
+}

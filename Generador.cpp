@@ -1,6 +1,6 @@
 #include <iostream>
 #include <sys/time.h>
-#include <Generador.hpp>
+#include "Generador.hpp"
 using namespace std;
 
 Generador::Generador()

@@ -1,15 +1,4 @@
-class Dato
-{
-private:
-    int posicion;
-    int longitud;
-public:
-    Dato();
-    int getPos();
-    int getLong();
-    void setPos(int p);
-    void setLong(int l);
-};
+#include <Dato.hpp>
 
 Dato::Dato()
 {

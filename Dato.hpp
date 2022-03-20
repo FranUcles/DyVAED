@@ -10,5 +10,5 @@ public:
     int getLong();
     void setPos(int p);
     void setLong(int l);
-    Dato datoMax(Dato d1, Dato d2); // Devuelve el máximo 
+    static Dato datoMax(Dato d1, Dato d2); // Devuelve el máximo 
 };

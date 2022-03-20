@@ -30,6 +30,4 @@ Dato combinar(int m, int inicio, int final, int A[], int B[], Dato parcial1, Dat
     return Dato::datoMax(parcial3, Dato::datoMax(parcial1, parcial2)); // Devolvemos el máximo de las tres soluciones parciales
 }
 
-int main(int argc, char const *argv[])
-{
-}
+int main(int argc, char const *argv[]);

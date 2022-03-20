@@ -1,8 +1,9 @@
 #include "Dato.hpp"
 #include "Comprobador.hpp"
+#include <iostream>
+using namespace std;
 
-
-Dato resolucionDirecta(char A[], char B[], int n, int m)
+Dato resolucion(char A[], char B[], int n, int m)
 {
     Dato solucion;
     int max = 0; // Numero más grande de coincidencias 
@@ -25,7 +26,9 @@ Dato resolucionDirecta(char A[], char B[], int n, int m)
 }
 bool Comprobador::comprobar(Dato solucion, char A[], char B[], int n, int m)
 {
-    Dato solucion_correcta = resolucionDirecta(A, B, n, m); // Obtiene la solución "correcta"
+    Dato solucion_correcta = resolucion(A, B, n, m); // Obtiene la solución "correcta"
+    // cout << "Posicion (Correcta): " << solucion_correcta.getPos() << endl;
+    // cout << "Coincidencias (Correcta): " << solucion_correcta.getCoincidencias() << endl;
     return solucion.getCoincidencias() == solucion_correcta.getCoincidencias() && solucion.getPos() == solucion_correcta.getPos(); // Comprueba si son iguales
 }
 

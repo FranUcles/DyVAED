@@ -5,6 +5,7 @@ private:
     int longitud; // Guarda la longitud de la cadena
 public:
     Dato();
+    Dato(int posicion, int longitud);
     int getPos();
     int getLong();
     void setPos(int p);

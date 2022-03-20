@@ -6,7 +6,7 @@ Dato::Dato()
     this->coincidencias = 0;
 }
 
-Dato::Dato(int coincidencias, int posicion) {
+Dato::Dato(int posicion, int coincidencias) {
     this->posicion = posicion;
     this->coincidencias = coincidencias;
 }
@@ -28,7 +28,11 @@ void Dato::setCoincidencias(int c){
 }
 
 Dato Dato::datoMax(Dato d1, Dato d2) {
-    if (d1.coincidencias >= d2.coincidencias)
+    if (d1.coincidencias > d2.coincidencias)
+        return d1;
+    else if (d2.coincidencias > d1.coincidencias)
+        return d2;
+    if (d1.posicion <= d2.posicion)
         return d1;
     else
         return d2;

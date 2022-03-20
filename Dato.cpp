@@ -6,7 +6,7 @@ Dato::Dato()
     this->longitud = 0;
 }
 
-Dato::Dato(int longitud, int posicion) {
+Dato::Dato(int posicion, int longitud) {
     this->posicion = posicion;
     this->longitud = longitud;
 }

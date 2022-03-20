@@ -7,7 +7,7 @@ Dato combinar(int m, int inicio, int final, int A[], int B[], Dato parcial1, Dat
     int pos = inicio; // Inicio de la cadena que es la más coincidente
     int matches = 0; // Numero de coincidencias 
 
-    for (int i = 0; i < m-1; i++){
+    for (int i = 0; i < m-1; i++)
         if (A[inicio + i] == B[inicio + i])
             matches++;
     Dato parcial3(pos, matches); // Creamos una posible solución inicial
@@ -29,5 +29,23 @@ Dato combinar(int m, int inicio, int final, int A[], int B[], Dato parcial1, Dat
     }
     return Dato::datoMax(parcial3, Dato::datoMax(parcial1, parcial2)); // Devolvemos el máximo de las tres soluciones parciales
 }
+Dato resolucionDirecta(char A[], char B[], int inicio, int final){
+    Dato resultado(inicio, 0);
+    int max = 0;
+    int cont = 0;
+    for (int i = inicio; i <= final; i++){
+        if (A[i] == B[i])
+            cont++;
+        else{
+            if (cont >= max)
+                max = cont;
+            cont = 0;
+        }
+    }
+    resultado.setLong(max);
+    return resultado;
+}
 
-int main(int argc, char const *argv[]);
+int main(int argc, char const *argv[])
+{
+}

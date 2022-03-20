@@ -3,6 +3,51 @@
 #include <iostream>
 using namespace std;
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Dato DyV(int m, int inicio, int final, int A[], int B[]) {
     int diff = final - inicio + 1; // Numero de elementos de las cadenas
     Dato resultado;
@@ -23,6 +68,9 @@ Dato DyV(int m, int inicio, int final, int A[], int B[]) {
     // resultado = combinar(m, nuevo_inicio, nuevo_final, A, B, dato1, dato2); // Combinamos las soluciones
     return resultado;
 }
+
+
+
 Dato resolucionDirecta(char A[], char B[], int inicio, int final){
     Dato resultado(inicio, 0);
     int max = 0;

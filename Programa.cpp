@@ -1,10 +1,7 @@
 #include "Dato.hpp"
-#include "Comprobador.hpp"
+#include "Programa.hpp"
 #include <iostream>
-#include <thread>
 using namespace std;
-
-using std::this_thread::sleep_for;
 
 Dato combinar(int m, int inicio, int final, char A[], char B[], Dato parcial1, Dato parcial2) {
     int pos = inicio; // Inicio de la cadena que es la más coincidente
@@ -90,29 +87,7 @@ string generar_string_promedio(int n)
     }
     return resultado;
 }
-int main(int argc, char const *argv[])
-{
-    for (int i = 0; i < 50; i++) {
-    int n = 10;
-    int m = 5;
-    char A[n];
-    string aux_string = generar_string_promedio(n);
-    // cout << "Cadena 1: " << aux_string << endl;
-    for (int i = 0; i < n; i++)
-        A[i] = aux_string[i];
-    char B[n];
-    sleep_for(std::chrono::milliseconds(500));
-    string aux_string_B = generar_string_promedio(n);
-    // cout << "Cadena 2: " << aux_string_B << endl;
-    for (int i = 0; i < n; i++)
-        B[i] = aux_string_B[i];
-    Dato resultado = DyV(m,1,n,A,B);
-    bool correcta = Comprobador::comprobar(resultado, A, B, n, m);
-    if (correcta)
-        cout << "CORRECTA" << endl;
-    else
-        cout << "CAGASTE" << endl;
-    // cout << "Posicion: " << resultado.getPos() << endl;
-    // cout << "Coincidencias: " << resultado.getCoincidencias() << endl;
-    }
+
+Dato Programa::solucionar(int n, int m, char A[], char B[]) {
+    return DyV(m, 1, n, A, B);
 }

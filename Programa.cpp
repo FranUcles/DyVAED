@@ -42,9 +42,7 @@ Dato resolucionDirecta(char A[], char B[], int inicio, int final){
             cont = 0;
         }
     }
-
     resultado.setLong(max);
-
     return resultado;
 }
 

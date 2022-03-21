@@ -25,6 +25,7 @@ Dato combinar(int m, int inicio, int final, char A[], char B[], Dato parcial1, D
         if (parcial3.getCoincidencias() == m) // Comprobamos si es el caso máximo
             return parcial3;
     }
+ 
     return Dato::datoMax(parcial3, Dato::datoMax(parcial1, parcial2)); // Devolvemos el máximo de las tres soluciones parciales
 }
 Dato resolucionDirecta(char A[], char B[], int inicio, int final){
@@ -36,6 +37,7 @@ Dato resolucionDirecta(char A[], char B[], int inicio, int final){
         }
     }
     resultado.setCoincidencias(cont);
+ 
     return resultado;
 }
 
@@ -45,9 +47,11 @@ Dato DyV(int m, int inicio, int final, char A[], char B[]) {
     if (diff < m) // Si el número de elementos es mayor que la m, nunca hay solución
         return resultado;
     else if (diff == m){ // Si es el mismo, se puede resolver por resolución directa
+
         return resolucionDirecta(A, B, inicio, final);
     }
     int medio = inicio + diff/2 - 1; // Dividimos las cadenas por la mitad
+ 
     Dato dato1 = DyV(m, inicio, medio, A, B); // Evaluamos la primera mitad
     if (dato1.getCoincidencias() == m)
         return dato1;
@@ -57,6 +61,7 @@ Dato DyV(int m, int inicio, int final, char A[], char B[]) {
     int nuevo_inicio = max(inicio, medio - m + 2); // Preparamos el combinar para evitar que se salga de las cadenas
     int nuevo_final = min(final, medio + m - 1); // Preparamos el combinar para evitar que se salga de las cadenas
     resultado = combinar(m, nuevo_inicio, nuevo_final, A, B, dato1, dato2); // Combinamos las soluciones
+ 
     return resultado;
 }
 

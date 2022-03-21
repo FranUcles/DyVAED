@@ -3,20 +3,18 @@
 #include <vector>
 using namespace std;
 
-char* GeneradorCasos::generar_mejor(int n, char c) {
-    vector<char> resultado(n,c);
-    return &resultado[0];
+void GeneradorCasos::generar_mejor(char A[], int n, char c) {
+    for (int i = 0; i < n; i++)
+        A[i] = c;
 }
-char* GeneradorCasos::generar_peor(int n, char c) {
-    vector<char> resultado(n,c);
-    return &resultado[0];
+void GeneradorCasos::generar_peor(char A[], int n, char c) {
+    for (int i = 0; i < n; i++)
+        A[i] = c;
 }
-char* GeneradorCasos::generar_promedio(int n) {
-    vector<char> resultado(n);
+void GeneradorCasos::generar_promedio(char A[], int n) {
     for (int i = 0; i < n; i++)
     {
         char valor = 'a' + (rand() % ('z' - 'a' + 1)); // Genera un random, lo acota por el número de letras y se lo añade a la 'a'
-        resultado[i] = valor;                          // Concatena los resultados
+        A[i] = valor;                                   // Incluye el caracter
     }
-    return &resultado[0];
 }

@@ -2,7 +2,7 @@ class GeneradorCasos
 {
 private:
 public:
-    static char* generar_mejor(int n, char c);
-    static char* generar_peor(int n, char c);
-    static char* generar_promedio(int n);
+    static void generar_mejor(char A[], int n, char c);
+    static void generar_peor(char A[], int n, char c);
+    static void generar_promedio(char A[], int n);
 };

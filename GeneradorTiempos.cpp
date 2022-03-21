@@ -32,10 +32,11 @@ double caso_promedio(int n, int m)
     double tiempo; // Tiempo transcurrido
     for (int i = 0; i < NUMERO_PRUEBAS_PROMEDIO; i++)
     {
-        char A[] = GeneradorCasos.generar_promedio(n, 'a');
-        char B[] = GeneradorCasos.generar_promedio(n, 'a');
+        char A[n], B[n];
+        GeneradorCasos::generar_promedio(A, n); // Genero la cadena A
+        GeneradorCasos::generar_promedio(B, n); // Genero la cadena B
         gettimeofday(&ti,NULL); // Toma la hora antes del algoritmo
-        Programa::solucionar(m, 1, n, A, B);
+        Programa::solucionar(n, m, A, B);
         gettimeofday(&tf,NULL); // Toma la hora después del algoritmo
         tiempo = (tf.tv_sec - ti.tv_sec)*1000 + (tf.tv_usec - ti.tv_usec)/1000.0; // Calcula el tiempo transcurrido
         casos[i] = tiempo;
@@ -45,12 +46,13 @@ double caso_promedio(int n, int m)
 
 double caso_mejor(int n, int m)
 {
-    char A[] = GeneradorCasos.generar_mejor(n, 'a');
-    char B[] = GeneradorCasos.generar_mejor(n, 'a');
+    char A[n], B[n];
+    GeneradorCasos::generar_mejor(A, n, 'a'); // Genero la cadena A
+    GeneradorCasos::generar_mejor(B, n, 'a'); // Genero la cadena B
     struct timeval ti,tf; // Hora de inicio y hora de fin
     double tiempo; // Tiempo transcurrido
     gettimeofday(&ti,NULL); // Toma la hora antes del algoritmo
-    Programa::solucionar(m, 1, n, A, B);
+    Programa::solucionar(n, m, A, B);
     gettimeofday(&tf,NULL); // Toma la hora después del algoritmo
     tiempo = (tf.tv_sec - ti.tv_sec)*1000 + (tf.tv_usec - ti.tv_usec)/1000.0; // Calcula el tiempo transcurrido
     return tiempo;
@@ -58,12 +60,13 @@ double caso_mejor(int n, int m)
 
 double caso_peor(int n, int m)
 {
-    char A[] = GeneradorCasos.generar_peor(n, 'a');
-    char B[] = GeneradorCasos.generar_peor(n, 'b');
+    char A[n], B[n];
+    GeneradorCasos::generar_peor(A, n, 'a'); // Genero la cadena A
+    GeneradorCasos::generar_peor(B, n, 'b'); // Genero la cadena B
     struct timeval ti,tf; // Hora de inicio y hora de fin
     double tiempo; // Tiempo transcurrido
     gettimeofday(&ti,NULL); // Toma la hora antes del algoritmo
-    Programa::solucionar(m, 1, n, A, B);
+    Programa::solucionar(n, m, A, B);
     gettimeofday(&tf,NULL); // Toma la hora después del algoritmo
     tiempo = (tf.tv_sec - ti.tv_sec)*1000 + (tf.tv_usec - ti.tv_usec)/1000.0; // Calcula el tiempo transcurrido
     return tiempo;

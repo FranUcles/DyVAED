@@ -1,6 +1,5 @@
 #include "GeneradorCasos.hpp"
 #include <iostream>
-#include <vector>
 using namespace std;
 
 void GeneradorCasos::generar_mejor(char A[], int n, char c) {

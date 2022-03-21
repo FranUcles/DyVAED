@@ -1,3 +1,5 @@
+#ifndef GeneradorTiempos_hpp
+#define GeneradorTiempos_hpp
 class GeneradorTiempos // Objeto que genera los tiempos del algoritmo
 {
 private:
@@ -12,3 +14,4 @@ public:
     double getTiempoPeor(); // Obtener el tiempo peor
     double getTiempoPromedio(); // Obtener el tiempo promedio
 };
+#endif

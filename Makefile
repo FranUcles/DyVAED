@@ -10,7 +10,7 @@ GeneradorCasos.o: GeneradorCasos.cpp GeneradorCasos.hpp
 Comprobador.o: Comprobador.cpp Comprobador.hpp Dato.hpp
 	g++ -c Comprobador.cpp
 
-Programa.o: Programa.cpp Programa.hpp Dato.hpp
+Programa.o: Programa.cpp Programa.hpp 
 	g++ -c Programa.cpp
 
 GeneradorTiempos.o: GeneradorTiempos.cpp GeneradorTiempos.hpp Programa.hpp GeneradorCasos.hpp

@@ -2,7 +2,7 @@
 
 Dato::Dato()
 {
-    this->posicion = 0;
+    this->posicion = 1;
     this->coincidencias = 0;
 }
 

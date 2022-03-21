@@ -17,7 +17,7 @@ GeneradorTiempos::GeneradorTiempos()
 double media(double casos[])
 {
     double suma = 0;
-    int tamano = sizeof(casos) / sizeof(casos[0]); // Tamaño del array de casos
+    int tamano = (int) sizeof(casos) / sizeof(casos[0]); // Tamaño del array de casos
     for (int i = 0; i < tamano; i++) // Suma todos los tiempos
         suma += casos[i];
     return suma / tamano; // Devuelve la media

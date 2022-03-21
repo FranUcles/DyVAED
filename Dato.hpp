@@ -1,3 +1,5 @@
+#ifndef Dato_hpp
+#define Dato_hpp
 class Dato
 {
 private:
@@ -12,3 +14,4 @@ public:
     void setCoincidencias(int l); // Establece el número de coincidencias
     static Dato datoMax(Dato d1, Dato d2); // Devuelve el máximo 
 };
+#endif

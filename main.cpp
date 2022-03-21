@@ -18,20 +18,20 @@ int main(int argc, char const *argv[])
             cout << "CORRECTA" << endl;
         else {
             cout << "CAGASTE" << endl;
-            // cout << "------------------------------" << endl;
-            // cout << "Cadena A: ";
-            // for (int i = 0; i < n; i++)
-            //     cout << A[i];
-            // cout << endl;
-            // cout << "Cadena B: ";
-            // for (int i = 0; i < n; i++)
-            //     cout << B[i];
-            // cout << endl;
-            // cout << "------------------------------" << endl;
-            // cout << "Solución propuesta: " << "(" << resultado.getPos() << "," << resultado.getCoincidencias() << ")" << endl;
-            // Comprobador::comprobar(resultado, A, B, n, m, true);
-            // cout << "------------------------------" << endl;
-            // break;
+            cout << "------------------------------" << endl;
+            cout << "Cadena A: ";
+            for (int i = 0; i < n; i++)
+                cout << A[i];
+            cout << endl;
+            cout << "Cadena B: ";
+            for (int i = 0; i < n; i++)
+                cout << B[i];
+            cout << endl;
+            cout << "------------------------------" << endl;
+            cout << "Solución propuesta: " << "(" << resultado.getPos() << "," << resultado.getCoincidencias() << ")" << endl;
+            Comprobador::comprobar(resultado, A, B, n, m, true);
+            cout << "------------------------------" << endl;
+            break;
         }
     }
 }

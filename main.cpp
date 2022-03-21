@@ -8,8 +8,8 @@ int main(int argc, char const *argv[])
 {
     srand(time(NULL));
     for (int i = 0; i < 5000; i++) {
-        int n = 5000;                                                       // Tamaño de las cadenas
-        int m = 1000;                                                       // Tamaño de las subcadenas solución
+        int n = 1000;                                                       // Tamaño de las cadenas
+        int m = 100;                                                        // Tamaño de las subcadenas solución
         char A[n], B[n];                                                    // cadenas A y B que se van a comparar
         GeneradorCasos::generar_promedio(A, B, n);                          // Genero las cadenas A y B
         Dato resultado = Programa::solucionar(n, m, A, B);                  // Soluciona el problema con el algoritmo
@@ -29,7 +29,7 @@ int main(int argc, char const *argv[])
             cout << endl;
             cout << "------------------------------" << endl;
             cout << "Solución propuesta: " << "(" << resultado.getPos() << "," << resultado.getCoincidencias() << ")" << endl;
-            Comprobador::comprobar(resultado, A, B, n, m, true); // Imprime la solución correcta
+            Comprobador::comprobar(resultado, A, B, n, m, true);             // Imprime la solución correcta
             cout << "------------------------------" << endl;
             break;
         }

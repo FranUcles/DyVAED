@@ -76,18 +76,6 @@ Dato DyV(int m, int inicio, int final, char A[], char B[]) {
     return resultado;
 }
 
-string generar_string_promedio(int n)
-{
-    string resultado = string();
-    srand(time(NULL)); // Da un generador de valores aleatorios con semilla en función de la hora actual
-    for (int i = 0; i < n; i++)
-    {
-        char valor = 'a' + (rand() % ('z' - 'a' + 1)); // Genera un random, lo acota por el número de letras y se lo añade a la 'a'
-        resultado += valor;                            // Concatena los resultados
-    }
-    return resultado;
-}
-
 Dato Programa::solucionar(int n, int m, char A[], char B[]) {
     return DyV(m, 1, n, A, B);
 }

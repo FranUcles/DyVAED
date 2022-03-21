@@ -4,6 +4,6 @@ class Programa
 {
 private:
 public:
-    static Dato solucionar(int n, int m, char A[], char B[]);
+    static Dato solucionar(int n, int m, char A[], char B[]); // Soluciona el problema
 };
 

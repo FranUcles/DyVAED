@@ -6,9 +6,9 @@ private:
 public:
     Dato();
     Dato(int posicion, int coincidencias);
-    int getPos();
-    int getCoincidencias();
-    void setPos(int p);
-    void setCoincidencias(int l);
+    int getPos(); // Devuelve la posición de inicio de la cadena
+    int getCoincidencias(); // Devuelve el número de coincidencias 
+    void setPos(int p); // Establece la posición
+    void setCoincidencias(int l); // Establece el número de coincidencias
     static Dato datoMax(Dato d1, Dato d2); // Devuelve el máximo 
 };

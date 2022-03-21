@@ -1,9 +1,9 @@
 class GeneradorTiempos // Objeto que genera los tiempos del algoritmo
 {
 private:
-    double tiempo_mejor;
-    double tiempo_peor;
-    double tiempo_promedio;
+    double tiempo_mejor; // Tiempo mejor generado
+    double tiempo_peor; // Tiempo peor generado
+    double tiempo_promedio; // Tiempo promedio generado
 
 public:
     GeneradorTiempos();

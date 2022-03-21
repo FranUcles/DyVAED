@@ -5,6 +5,8 @@
 #include "GeneradorCasos.hpp"
 using namespace std;
 
+const int NUMERO_PRUEBAS_PROMEDIO = 10; // Numero de pruebas que se realizan para obtener el tiempo promedio más fiablemente
+
 GeneradorTiempos::GeneradorTiempos()
 {
     tiempo_mejor = 0;
@@ -12,47 +14,41 @@ GeneradorTiempos::GeneradorTiempos()
     tiempo_promedio = 0;
 }
 
-const int NUMERO_PRUEBAS_PROMEDIO = 10;
-
-
-
 double media(double casos[])
 {
     double suma = 0;
     int tamano = sizeof(casos) / sizeof(casos[0]); // Tamaño del array de casos
-    for (int i = 0; i < tamano; i++)
+    for (int i = 0; i < tamano; i++) // Suma todos los tiempos
         suma += casos[i];
-    return suma / tamano;
+    return suma / tamano; // Devuelve la media
 }
 
 double caso_promedio(int n, int m)
 {
-    double casos[NUMERO_PRUEBAS_PROMEDIO]; // Array donde guardar las diferentes salidas de los casos
+    double casos[NUMERO_PRUEBAS_PROMEDIO]; // Array donde guardar los diferentes tiempos del algoritmo
     struct timeval ti,tf; // Hora de inicio y hora de fin
     double tiempo; // Tiempo transcurrido
     for (int i = 0; i < NUMERO_PRUEBAS_PROMEDIO; i++)
     {
-        char A[n], B[n];
-        GeneradorCasos::generar_promedio(A, n); // Genero la cadena A
-        GeneradorCasos::generar_promedio(B, n); // Genero la cadena B
+        char A[n], B[n];  // Cadenas A y B que se van a comparar
+        GeneradorCasos::generar_promedio(A, B, n); // Genero las cadenas A y B
         gettimeofday(&ti,NULL); // Toma la hora antes del algoritmo
-        Programa::solucionar(n, m, A, B);
+        Programa::solucionar(n, m, A, B); // Solucionar el problema
         gettimeofday(&tf,NULL); // Toma la hora después del algoritmo
         tiempo = (tf.tv_sec - ti.tv_sec)*1000 + (tf.tv_usec - ti.tv_usec)/1000.0; // Calcula el tiempo transcurrido
-        casos[i] = tiempo;
+        casos[i] = tiempo; // Guarda el tiempo que ha tardado el caso i
     }
     return media(casos);
 }
 
 double caso_mejor(int n, int m)
 {
-    char A[n], B[n];
-    GeneradorCasos::generar_mejor(A, n, 'a'); // Genero la cadena A
-    GeneradorCasos::generar_mejor(B, n, 'a'); // Genero la cadena B
+    char A[n], B[n]; // Cadenas A y B que se van a comparar
+    GeneradorCasos::generar_mejor(A, B, n); // Genero las cadenas A y B
     struct timeval ti,tf; // Hora de inicio y hora de fin
     double tiempo; // Tiempo transcurrido
     gettimeofday(&ti,NULL); // Toma la hora antes del algoritmo
-    Programa::solucionar(n, m, A, B);
+    Programa::solucionar(n, m, A, B); // Solucionar el problema
     gettimeofday(&tf,NULL); // Toma la hora después del algoritmo
     tiempo = (tf.tv_sec - ti.tv_sec)*1000 + (tf.tv_usec - ti.tv_usec)/1000.0; // Calcula el tiempo transcurrido
     return tiempo;
@@ -60,13 +56,12 @@ double caso_mejor(int n, int m)
 
 double caso_peor(int n, int m)
 {
-    char A[n], B[n];
-    GeneradorCasos::generar_peor(A, n, 'a'); // Genero la cadena A
-    GeneradorCasos::generar_peor(B, n, 'b'); // Genero la cadena B
+    char A[n], B[n]; // Cadenas A y B que se van a comparar
+    GeneradorCasos::generar_peor(A, B, n);
     struct timeval ti,tf; // Hora de inicio y hora de fin
     double tiempo; // Tiempo transcurrido
     gettimeofday(&ti,NULL); // Toma la hora antes del algoritmo
-    Programa::solucionar(n, m, A, B);
+    Programa::solucionar(n, m, A, B); // Solucionar el problema
     gettimeofday(&tf,NULL); // Toma la hora después del algoritmo
     tiempo = (tf.tv_sec - ti.tv_sec)*1000 + (tf.tv_usec - ti.tv_usec)/1000.0; // Calcula el tiempo transcurrido
     return tiempo;

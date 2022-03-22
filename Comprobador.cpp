@@ -1,5 +1,6 @@
 #include "Comprobador.hpp"
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 Dato resolucion(char A[], char B[], int n, int m)

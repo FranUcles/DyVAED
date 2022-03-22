@@ -11,7 +11,7 @@ Dato combinar(int m, int inicio, int final, char A[], char B[], Dato parcial1, D
     Dato parcial3(pos, matches);                                        // Creamos una posible solución inicial
     if (matches == m)                                                   // Si es la mejor, salimos
         return parcial3;
-    int longitud = min(final - inicio + 1 - m, 2*m - 1);                // Tomamos el minimo de las 2 cantidades para no salirnos de la cadena
+    int longitud = min(final - inicio + 1 - m, 2*m - 2);                // Tomamos el minimo de las 2 cantidades para no salirnos de la cadena
     for (int i = 1; i <= longitud; i++) {
         if (A[inicio + i - 2] == B[inicio + i - 2] && A[inicio + m + i - 2] != B[inicio + m + i - 2])
             matches--;
@@ -41,7 +41,7 @@ Dato resolucionDirecta(char A[], char B[], int inicio, int final){
 
 Dato DyV(int m, int inicio, int final, char A[], char B[]) {
     int elem = final - inicio + 1;                                          // Numero de elementos de las cadenas
-    Dato resultado;                                                         // Solución "vacía"
+    Dato resultado(inicio,0);                                               // Solución "vacía"
     if (elem < m)                                                           // Si el número de elementos es mayor que la m, nunca hay solución
         return resultado;
     else if (elem == m)                                                     // Si es el mismo, se puede resolver por resolución directa

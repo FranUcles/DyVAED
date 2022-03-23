@@ -1,6 +1,7 @@
 #include "GeneradorTiempos.hpp"
 #include <fstream>
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 #define SEPARADOR "; ";
@@ -11,7 +12,10 @@ int main(int argc, char const *argv[])
     ofstream fichero_mejor_tiempo("tiempo_mejor.csv");
     ofstream fichero_peor_tiempo("tiempo_peor.csv");
     ofstream fichero_promedio_tiempo("tiempo_promedio.csv");
-    for (int n = 1; n <= 1000; n++)
+    fichero_mejor_tiempo << setprecision(20);
+    fichero_peor_tiempo << setprecision(20);
+    fichero_promedio_tiempo << setprecision(20);
+    for (int n = 1; n <= 100; n++)
     {
         for (int m = 1; m < n; m++) {
             GeneradorTiempos generador;

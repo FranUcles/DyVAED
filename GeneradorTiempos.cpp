@@ -14,20 +14,20 @@ GeneradorTiempos::GeneradorTiempos()
     tiempo_promedio = 0;
 }
 
-double media(double casos[])
+long double media(long double casos[])
 {
-    double suma = 0;
+    long double suma = 0;
     int tamano = (int) sizeof(casos) / sizeof(casos[0]);                            // Tamaño del array de casos (PREGUNTAR QUINO)
     for (int i = 0; i < tamano; i++)                                                // Suma todos los tiempos
         suma += casos[i];
     return suma / tamano;                                                           // Devuelve la media
 }
 
-double caso_promedio(int n, int m)
+long double caso_promedio(int n, int m)
 {
-    double casos[NUMERO_PRUEBAS_PROMEDIO];                                          // Array donde guardar los diferentes tiempos del algoritmo
+    long double casos[NUMERO_PRUEBAS_PROMEDIO];                                          // Array donde guardar los diferentes tiempos del algoritmo
     struct timeval ti,tf;                                                           // Hora de inicio y hora de fin
-    double tiempo;                                                                  // Tiempo transcurrido
+    long double tiempo;                                                                  // Tiempo transcurrido
     for (int i = 0; i < NUMERO_PRUEBAS_PROMEDIO; i++)
     {
         char A[n], B[n];                                                            // Cadenas A y B que se van a comparar
@@ -41,7 +41,7 @@ double caso_promedio(int n, int m)
     return media(casos);
 }
 
-double caso_mejor(int n, int m)
+long double caso_mejor(int n, int m)
 {
     char A[n], B[n];                                                                // Cadenas A y B que se van a comparar
     GeneradorCasos::generar_mejor(A, B, n);                                         // Genero las cadenas A y B
@@ -54,7 +54,7 @@ double caso_mejor(int n, int m)
     return tiempo;
 }
 
-double caso_peor(int n, int m)
+long double caso_peor(int n, int m)
 {
     char A[n], B[n];                                                                // Cadenas A y B que se van a comparar
     GeneradorCasos::generar_peor(A, B, n);                                          // Genero las cadenas A y B
@@ -74,15 +74,15 @@ void GeneradorTiempos::generarTiempos(int n, int m)
     this->tiempo_promedio = caso_promedio(n, m);
 }
 
-double GeneradorTiempos::getTiempoPeor()
+long double GeneradorTiempos::getTiempoPeor()
 {
     return this->tiempo_peor;
 }
-double GeneradorTiempos::getTiempoMejor()
+long double GeneradorTiempos::getTiempoMejor()
 {
     return this->tiempo_mejor;
 }
-double GeneradorTiempos::getTiempoPromedio()
+long double GeneradorTiempos::getTiempoPromedio()
 {
     return this->tiempo_promedio;
 }

@@ -1,37 +1,33 @@
-#include "Programa.hpp"
-#include "Comprobador.hpp"
-#include "GeneradorCasos.hpp"
+#include "GeneradorTiempos.hpp"
+#include <fstream>
 #include <iostream>
 using namespace std;
+
+#define SEPARADOR "; ";
 
 int main(int argc, char const *argv[])
 {
     srand(time(NULL));
-    for (int i = 0; i < 5000; i++) {
-        int n = 50;                                                       // Tamaño de las cadenas
-        int m = 10;                                                        // Tamaño de las subcadenas solución
-        char A[n], B[n];                                                    // cadenas A y B que se van a comparar
-        GeneradorCasos::generar_promedio(A, B, n);                          // Genero las cadenas A y B
-        Dato resultado = Programa::solucionar(n, m, A, B);                  // Soluciona el problema con el algoritmo
-        bool correcta = Comprobador::comprobar(resultado, A, B, n, m);      // Comprueba la solución
-        if (correcta)                                                       // Muestra por pantalla 
-            cout << "CORRECTA" << endl;
-        else {
-            cout << "CAGASTE" << endl;
-            cout << "------------------------------" << endl;
-            cout << "Cadena A: ";
-            for (int i = 0; i < n; i++)
-                cout << A[i];
-            cout << endl;
-            cout << "Cadena B: ";
-            for (int i = 0; i < n; i++)
-                cout << B[i];
-            cout << endl;
-            cout << "------------------------------" << endl;
-            cout << "Solución propuesta: " << "(" << resultado.getPos() << "," << resultado.getCoincidencias() << ")" << endl;
-            Comprobador::comprobar(resultado, A, B, n, m, true);             // Imprime la solución correcta
-            cout << "------------------------------" << endl;
-            break;
+    ofstream fichero_mejor_tiempo("tiempo_mejor.csv");
+    ofstream fichero_peor_tiempo("tiempo_peor.csv");
+    ofstream fichero_promedio_tiempo("tiempo_promedio.csv");
+    for (int n = 1; n <= 1000; n++)
+    {
+        for (int m = 1; m < n; m++) {
+            GeneradorTiempos generador;
+            generador.generarTiempos(n,m);
+            fichero_mejor_tiempo << generador.getTiempoMejor() << SEPARADOR;
+            fichero_peor_tiempo << generador.getTiempoPeor() << SEPARADOR;
+            fichero_promedio_tiempo << generador.getTiempoPromedio() << SEPARADOR;
+            // cout << "---------------------------------------------------------" << endl;
+            // cout << "Tiempos con (n,m) = " << "(" << n << "," << m << ")"<< endl;
+            // cout << "Tiempo mejor: " << generador.getTiempoMejor() << endl;
+            // cout << "Tiempo peor: " << generador.getTiempoPeor() << endl;
+            // cout << "Tiempo promedio: " << generador.getTiempoPromedio() << endl;
+            // cout << "---------------------------------------------------------" << endl;
         }
+        fichero_mejor_tiempo << endl;
+        fichero_peor_tiempo << endl;
+        fichero_promedio_tiempo << endl;
     }
 }

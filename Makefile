@@ -1,5 +1,5 @@
-a.out: Dato.o GeneradorCasos.o Comprobador.o Programa.o GeneradorTiempos.o main.o 
-	g++ Dato.o GeneradorCasos.o Comprobador.o Programa.o GeneradorTiempos.o main.o
+a.exe: Dato.o GeneradorCasos.o Comprobador.o Programa.o GeneradorTiempos.o main.o 
+	g++ -o ejecutable.exe Dato.o GeneradorCasos.o Comprobador.o Programa.o GeneradorTiempos.o main.o
 
 Dato.o: Dato.cpp Dato.hpp
 	g++ -c Dato.cpp

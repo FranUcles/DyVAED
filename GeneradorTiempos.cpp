@@ -17,7 +17,7 @@ GeneradorTiempos::GeneradorTiempos()
 double media(double casos[])
 {
     double suma = 0;
-    int tamano = (int) sizeof(casos) / sizeof(casos[0]);                            // Tamaño del array de casos (PREGUNTAR QUINO)
+    int tamano = NUMERO_PRUEBAS_PROMEDIO;                                           // Tamaño del array de casos
     for (int i = 0; i < tamano; i++)                                                // Suma todos los tiempos
         suma += casos[i];
     return suma / tamano;                                                           // Devuelve la media
@@ -57,7 +57,7 @@ double caso_mejor(int n, int m)
 double caso_peor(int n, int m)
 {
     char A[n], B[n];                                                                // Cadenas A y B que se van a comparar
-    GeneradorCasos::generar_peor(A, B, n);                                          // Genero las cadenas A y B
+    GeneradorCasos::generar_peor(A, B, n, m);                                          // Genero las cadenas A y B
     struct timeval ti,tf;                                                           // Hora de inicio y hora de fin
     double tiempo;                                                                  // Tiempo transcurrido
     gettimeofday(&ti,NULL);                                                         // Toma la hora antes del algoritmo

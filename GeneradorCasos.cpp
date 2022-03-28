@@ -8,10 +8,18 @@ void GeneradorCasos::generar_mejor(char A[], char B[], int n) {
         B[i] = 'a';
     }
 }
-void GeneradorCasos::generar_peor(char A[], char B[], int n) {
+void GeneradorCasos::generar_peor(char A[], char B[], int n, int m) {
+    int cont = 0;
     for (int i = 0; i < n; i++){                        // Rellena todo con carácteres iguales, pero distintos entre sí
-        A[i] = 'a';
-        B[i] = 'b';
+        if (cont < m - 1){
+            A[i] = 'a';
+            B[i] = 'a';
+            cont++;
+        } else {
+            A[i] = 'a';
+            B[i] = 'b';
+            cont = 0;
+        }
     }
 }
 void GeneradorCasos::generar_promedio(char A[], char B[],  int n) {

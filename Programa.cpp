@@ -13,9 +13,9 @@ Dato combinar(int m, int inicio, int final, char A[], char B[], Dato parcial1, D
         return parcial3;
     int longitud = min(final - inicio + 1 - m, 2*m - 2);                // Tomamos el minimo de las 2 cantidades para no salirnos de la cadena
     for (int i = 1; i <= longitud; i++) {
-        if (A[inicio + i - 2] == B[inicio + i - 2] && A[inicio + m + i - 2] != B[inicio + m + i - 2])
+        if (A[inicio + i - 2] == B[inicio + i - 2] && A[inicio + m - 1 + i - 1] != B[inicio + m - 1 + i - 1])
             matches--;
-        else if (A[inicio + i - 2] != B[inicio + i - 2] && A[inicio + m + i - 2] == B[inicio + m + i - 2]) 
+        else if (A[inicio + i - 2] != B[inicio + i - 2] && A[inicio + m - 1 + i - 1] == B[inicio + m - 1 + i - 1]) 
             matches++;
         if (matches > parcial3.getCoincidencias()) {                    // Tomamos el máximo
             parcial3.setPos(inicio + i);
